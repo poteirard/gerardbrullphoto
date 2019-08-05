@@ -1,4 +1,8 @@
 {
   "title": "About",
-  "content": "content.md"
+  "content": "content.md",
+  "image": {
+    "source": "../images/me.jpg",
+    "title": "Gerard Brull face"
+  }
 }

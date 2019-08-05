@@ -4,7 +4,8 @@ export const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4rem;
+  padding: 2rem;
+  background-color: #0b0b0c;
 
   a {
     color: #757575;
@@ -12,7 +13,7 @@ export const Container = styled.header`
     text-decoration: none;
 
     &:hover {
-      color: inherit;
+      color: #fff;
     }
   }
 `;

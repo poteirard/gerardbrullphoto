@@ -22,20 +22,21 @@ const AnimatedContainer = posed.div({
   },
 });
 
-const Header = ({ title }) => (
+const Header = ({ title, facebookUrl, instagramUrl }) => (
   <AnimatedContainer>
     <Container>
       <Link to="/">
         <Title as="h1">{title}</Title>
       </Link>
-
-      <Nav />
+      <Nav facebookUrl={facebookUrl} instagramUrl={instagramUrl} />
     </Container>
   </AnimatedContainer>
 );
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
+  facebookUrl: PropTypes.string.isRequired,
+  instagramUrl: PropTypes.string.isRequired,
 };
 
 export default Header;

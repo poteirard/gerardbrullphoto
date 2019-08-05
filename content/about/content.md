@@ -1,21 +1,11 @@
-Find the repository [on GitHub](https://github.com/fabe/gatsby-universal).
+Hey !
 
-```
-# Installation
-gatsby new my-site https://github.com/fabe/gatsby-universal
+As provably you already imagined my name is Gerard Brull. 
 
-# To develop
-yarn develop
+I've always loved art and since the beginning I wanted to promote music. After spending some years witting reviews 
+for webzines I realised taking pictures in concerts was both creative and good way for promotion.
 
-# To build
-yarn build
+This website is just a way to show some of my work that I think it's worth showing.
 
-# To test SSR (for Lighthouse etc.)
-yarn ssr
-
-# To format JS (precommit)
-yarn format
-
-# To generate favicons (included in `build`)
-yarn build:favicons
-```
+If you are in the music scene and you think we can collaborate together feel free to contact me through any of my social 
+platforms or the contact form.

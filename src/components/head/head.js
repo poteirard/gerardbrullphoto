@@ -162,6 +162,7 @@ const Head = ({
         })
       )}
     </script>
+    {/*<script async src="node_modules/medium-zoom/dist/medium-zoom.min.js"/>*/}
   </Helmet>
 );
 

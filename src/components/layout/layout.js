@@ -9,7 +9,11 @@ const Layout = ({ data, children }) => (
   <div>
     <GlobalStyle />
     <Head />
-    <Header title={data.site.siteMetadata.siteTitle} />
+    <Header
+      title={data.site.siteMetadata.siteTitle}
+      facebookUrl={data.site.siteMetadata.facebookUrl}
+      instagramUrl={data.site.siteMetadata.instagramUrl}
+    />
     {children}
   </div>
 );
@@ -26,6 +30,8 @@ const LayoutWithQuery = props => (
         site {
           siteMetadata {
             siteTitle
+            instagramUrl
+            facebookUrl
           }
         }
       }

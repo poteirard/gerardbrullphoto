@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Close } from './modal.css';
+import { Close } from './modal.css';
 import { Dialog } from '@reach/dialog';
 import VisuallyHidden from '@reach/visually-hidden';
 
@@ -45,7 +45,9 @@ export default class Modal extends PureComponent {
 
     return (
       <>
-        <Button onClick={showModal}>Show Modal</Button>
+        <button onClick={showModal}>
+          {children}
+        </button>
 
         <Dialog isOpen={open}>
           <Close onClick={hideModal}>
