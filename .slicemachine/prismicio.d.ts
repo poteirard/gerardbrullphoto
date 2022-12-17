@@ -6,54 +6,33 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
-/** Content for Home documents */
+/** Content for Footer documents */
+type FooterDocumentData = Record<string, never>;
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<FooterDocumentData>, "footer", Lang>;
+/** Content for Homepage documents */
 interface HomeDocumentData {
     /**
-     * Image Left field in *Home*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: home.image_left
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    image_left: prismicT.ImageField<never>;
-    /**
-     * Image Right field in *Home*
-     *
-     * - **Field Type**: Image
-     * - **Placeholder**: *None*
-     * - **API ID Path**: home.image_right
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/image
-     *
-     */
-    image_right: prismicT.ImageField<never>;
-    /**
-     * Text Left field in *Home*
+     * Title field in *Homepage*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*
-     * - **API ID Path**: home.text_left
+     * - **API ID Path**: home.title
      * - **Tab**: Main
      * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
      *
      */
-    text_left: prismicT.KeyTextField;
+    title: prismicT.KeyTextField;
     /**
-     * Text Right field in *Home*
-     *
-     * - **Field Type**: Text
-     * - **Placeholder**: *None*
-     * - **API ID Path**: home.text_right
-     * - **Tab**: Main
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-     *
-     */
-    text_right: prismicT.KeyTextField;
-    /**
-     * Slice Zone field in *Home*
+     * Slice Zone field in *Homepage*
      *
      * - **Field Type**: Slice Zone
      * - **Placeholder**: *None*
@@ -63,14 +42,36 @@ interface HomeDocumentData {
      *
      */
     slices: prismicT.SliceZone<HomeDocumentDataSlicesSlice>;
+    /**
+     * Meta Title field in *Homepage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: home.meta_title
+     * - **Tab**: SEO
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    meta_title: prismicT.KeyTextField;
+    /**
+     * Meta Description field in *Homepage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: home.meta_description
+     * - **Tab**: SEO
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    meta_description: prismicT.KeyTextField;
 }
 /**
- * Slice for *Home → Slice Zone*
+ * Slice for *Homepage → Slice Zone*
  *
  */
-type HomeDocumentDataSlicesSlice = never;
+type HomeDocumentDataSlicesSlice = MainSectionsSlice | ContentSlice;
 /**
- * Home document from Prismic
+ * Homepage document from Prismic
  *
  * - **API ID**: `home`
  * - **Repeatable**: `false`
@@ -78,7 +79,7 @@ type HomeDocumentDataSlicesSlice = never;
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type HomeDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
+export type HomeDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<HomeDocumentData>, "home", Lang>;
 /** Content for Navbar documents */
 interface NavbarDocumentData {
     /**
@@ -147,12 +148,193 @@ interface NavbarDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type NavbarDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<NavbarDocumentData>, "navbar", Lang>;
-export type AllDocumentTypes = HomeDocument | NavbarDocument;
+/** Content for Page documents */
+interface SectionDocumentData {
+    /**
+     * Title field in *Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: section.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Description field in *Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: section.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    description: prismicT.KeyTextField;
+    /**
+     * Slice Zone field in *Page*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: section.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<SectionDocumentDataSlicesSlice>;
+    /**
+     * Meta Title field in *Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: section.meta_title
+     * - **Tab**: SEO
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    meta_title: prismicT.KeyTextField;
+    /**
+     * Meta Description field in *Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: section.meta_description
+     * - **Tab**: SEO
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    meta_description: prismicT.KeyTextField;
+}
+/**
+ * Slice for *Page → Slice Zone*
+ *
+ */
+type SectionDocumentDataSlicesSlice = ContentSlice;
+/**
+ * Page document from Prismic
+ *
+ * - **API ID**: `section`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SectionDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<SectionDocumentData>, "section", Lang>;
+export type AllDocumentTypes = FooterDocument | HomeDocument | NavbarDocument | SectionDocument;
+/**
+ * Item in Galleria → Items
+ *
+ */
+export interface ContentSliceDefaultItem {
+    /**
+     * Image field in *Galleria → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: content.items[].image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+}
+/**
+ * Default variation for Galleria Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Content`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ContentSliceDefault = prismicT.SharedSliceVariation<"default", Record<string, never>, Simplify<ContentSliceDefaultItem>>;
+/**
+ * Slice variation for *Galleria*
+ *
+ */
+type ContentSliceVariation = ContentSliceDefault;
+/**
+ * Galleria Shared Slice
+ *
+ * - **API ID**: `content`
+ * - **Description**: `Content`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ContentSlice = prismicT.SharedSlice<"content", ContentSliceVariation>;
+/**
+ * Primary content in MainSections → Primary
+ *
+ */
+interface MainSectionsSliceDefaultPrimary {
+    /**
+     * Title field in *MainSections → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: main_sections.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *MainSections → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A nice description of your feature
+     * - **API ID Path**: main_sections.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+    /**
+     * Image field in *MainSections → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: main_sections.primary.image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
+    /**
+     * Link field in *MainSections → Primary*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: main_sections.primary.link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.RelationField;
+}
+/**
+ * Default variation for MainSections Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `MainSections`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type MainSectionsSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<MainSectionsSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *MainSections*
+ *
+ */
+type MainSectionsSliceVariation = MainSectionsSliceDefault;
+/**
+ * MainSections Shared Slice
+ *
+ * - **API ID**: `main_sections`
+ * - **Description**: `MainSections`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type MainSectionsSlice = prismicT.SharedSlice<"main_sections", MainSectionsSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, NavbarDocumentData, NavbarDocument, AllDocumentTypes };
+        export type { FooterDocumentData, FooterDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, NavbarDocumentData, NavbarDocument, SectionDocumentData, SectionDocumentDataSlicesSlice, SectionDocument, AllDocumentTypes, ContentSliceDefaultItem, ContentSliceDefault, ContentSliceVariation, ContentSlice, MainSectionsSliceDefaultPrimary, MainSectionsSliceDefault, MainSectionsSliceVariation, MainSectionsSlice };
     }
 }

@@ -1,14 +1,14 @@
 {
-  "id": "home",
-  "label": "Homepage",
-  "repeatable": false,
+  "id": "section",
+  "label": "Page",
+  "repeatable": true,
   "status": true,
   "json": {
     "Main": {
       "uid": {
         "type": "UID",
         "config": {
-          "label": "Uid",
+          "label": "Id",
           "placeholder": ""
         }
       },
@@ -19,14 +19,18 @@
           "placeholder": ""
         }
       },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "Description",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "main_sections": {
-              "type": "SharedSlice"
-            },
             "content": {
               "type": "SharedSlice"
             }

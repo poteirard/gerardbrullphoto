@@ -3,16 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "concurrently \"pnpm:next:dev\" \"pnpm:slicemachine\" \"pnpm:tailwind:dev\" --names \"next,slicemachine,tailwind\" --prefix-colors gray,magenta,blue",
+    "next:dev": "next dev --turbo",
+    "build": "next build && pnpm tailwind:build",
     "start": "next start",
     "lint": "next lint",
-    "slicemachine": "start-slicemachine"
+    "slicemachine": "start-slicemachine",
+    "tailwind:dev": "tailwindcss -i styles/globals.css -o styles/dist.css -w",
+    "tailwind:build": "tailwindcss -m -i styles/globals.css -o styles/dist.css",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@next/font": "13.0.7",
     "@prismicio/client": "^6.7.1",
     "@prismicio/helpers": "^2.3.6",
+    "@prismicio/next": "^1.0.2",
     "@prismicio/react": "^2.5.0",
     "@prismicio/slice-simulator-react": "^0.2.2",
     "@slicemachine/init": "^1.1.15",
@@ -28,6 +33,12 @@
   },
   "devDependencies": {
     "@prismicio/types": "^0.2.4",
-    "slice-machine-ui": "^0.5.2"
+    "autoprefixer": "^10.4.13",
+    "concurrently": "^7.6.0",
+    "postcss": "^8.4.20",
+    "prettier": "^2.8.1",
+    "prettier-plugin-tailwindcss": "^0.2.1",
+    "slice-machine-ui": "^0.5.2",
+    "tailwindcss": "^3.2.4"
   }
 }

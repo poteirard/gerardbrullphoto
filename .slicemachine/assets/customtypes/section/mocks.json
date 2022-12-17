@@ -1,7 +1,7 @@
 {
   "id": "mock-doc-id",
   "url": null,
-  "type": "home",
+  "type": "section",
   "href": null,
   "tags": [],
   "first_publication_date": "1970-01-01T00:00:01+0000",
@@ -11,9 +11,10 @@
   "lang": "en-us",
   "alternate_languages": [],
   "data": {
-    "title": "silence",
+    "title": "printed",
+    "description": "enter",
     "slices": [],
-    "meta_title": "box",
-    "meta_description": "pass"
+    "meta_title": "applied",
+    "meta_description": "couple"
   }
 }
