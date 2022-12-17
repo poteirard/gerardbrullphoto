@@ -1,0 +1,47 @@
+{
+  "id": "home",
+  "label": "Home",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "image_left": {
+        "type": "Image",
+        "config": {
+          "label": "Image Left",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "image_right": {
+        "type": "Image",
+        "config": {
+          "label": "Image Right",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "text_left": {
+        "type": "Text",
+        "config": {
+          "label": "Text Left",
+          "placeholder": ""
+        }
+      },
+      "text_right": {
+        "type": "Text",
+        "config": {
+          "label": "Text Right",
+          "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    }
+  }
+}

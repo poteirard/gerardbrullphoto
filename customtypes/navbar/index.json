@@ -1,0 +1,47 @@
+{
+  "id": "navbar",
+  "label": "Navbar",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "dark_icon": {
+        "type": "Image",
+        "config": {
+          "label": "Dark Icon",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "light_icon": {
+        "type": "Image",
+        "config": {
+          "label": "Light Icon",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "home_name": {
+        "type": "Text",
+        "config": {
+          "label": "Home name",
+          "placeholder": ""
+        }
+      },
+      "home_link": {
+        "type": "Link",
+        "config": {
+          "label": "Home link",
+          "select": "document"
+        }
+      }
+    }
+  }
+}
