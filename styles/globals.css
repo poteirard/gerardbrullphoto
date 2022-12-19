@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .text-shadow-white {
+      text-shadow: 1px 1px 10px white;
+    }
+  .text-shadow-black {
+    text-shadow: 1px 1px 5px darkgray;
+  }
+    .text-shadow-none {
+      text-shadow: none;
+    }
+}
+
+body {
+  @apply dark:bg-gray-900 dark:text-white bg-white text-gray-800;
+}
+
 [data-collapsible="true"].bg-white + [data-collapsible="true"].bg-white,
 [data-collapsible="true"].bg-gray-800 + [data-collapsible="true"].bg-gray-800 {
   @apply pt-0 md:pt-0;

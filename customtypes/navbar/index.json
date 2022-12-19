@@ -41,6 +41,14 @@
           "label": "Home link",
           "select": "document"
         }
+      },
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     }
   }

@@ -48,6 +48,13 @@
           "label": "Meta Description",
           "placeholder": ""
         }
+      },
+      "meta_tags": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Tags",
+          "placeholder": ""
+        }
       }
     }
   }

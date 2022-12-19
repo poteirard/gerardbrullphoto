@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"pnpm:next:dev\" \"pnpm:slicemachine\" \"pnpm:tailwind:dev\" --names \"next,slicemachine,tailwind\" --prefix-colors gray,magenta,blue",
-    "next:dev": "next dev --turbo",
+    "next:dev": "next dev",
     "build": "next build && pnpm tailwind:build",
     "start": "next start",
     "lint": "next lint",
@@ -27,6 +27,7 @@
     "eslint": "8.30.0",
     "eslint-config-next": "13.0.7",
     "next": "13.0.7",
+    "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.4"

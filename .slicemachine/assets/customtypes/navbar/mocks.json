@@ -18,7 +18,7 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764"
+      "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43"
     },
     "light_icon": {
       "dimensions": {
@@ -27,10 +27,10 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db"
+      "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8"
     },
-    "title": "introduced",
-    "home_name": "beginning",
+    "title": "large",
+    "home_name": "quick",
     "home_link": {
       "id": "mock_document_id",
       "link_type": "Document",
@@ -40,6 +40,15 @@
       "slug": null,
       "first_publication_date": "1970-01-01T00:00:01+0000",
       "last_publication_date": "1970-01-01T01:00:00+0000"
+    },
+    "logo": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118"
     }
   }
 }

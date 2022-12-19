@@ -64,6 +64,17 @@ interface HomeDocumentData {
      *
      */
     meta_description: prismicT.KeyTextField;
+    /**
+     * Meta Tags field in *Homepage*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: home.meta_tags
+     * - **Tab**: SEO
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    meta_tags: prismicT.KeyTextField;
 }
 /**
  * Slice for *Homepage → Slice Zone*
@@ -137,6 +148,17 @@ interface NavbarDocumentData {
      *
      */
     home_link: prismicT.RelationField;
+    /**
+     * Logo field in *Navbar*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: navbar.logo
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    logo: prismicT.ImageField<never>;
 }
 /**
  * Navbar document from Prismic
@@ -223,6 +245,55 @@ type SectionDocumentDataSlicesSlice = ContentSlice;
 export type SectionDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<SectionDocumentData>, "section", Lang>;
 export type AllDocumentTypes = FooterDocument | HomeDocument | NavbarDocument | SectionDocument;
 /**
+ * Primary content in CtaSection → Primary
+ *
+ */
+interface CtaSectionSliceDefaultPrimary {
+    /**
+     * Title field in *CtaSection → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: cta_section.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *CtaSection → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A nice description of your feature
+     * - **API ID Path**: cta_section.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Default variation for CtaSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `CtaSection`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CtaSectionSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<CtaSectionSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *CtaSection*
+ *
+ */
+type CtaSectionSliceVariation = CtaSectionSliceDefault;
+/**
+ * CtaSection Shared Slice
+ *
+ * - **API ID**: `cta_section`
+ * - **Description**: `CtaSection`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CtaSectionSlice = prismicT.SharedSlice<"cta_section", CtaSectionSliceVariation>;
+/**
  * Item in Galleria → Items
  *
  */
@@ -308,6 +379,22 @@ interface MainSectionsSliceDefaultPrimary {
     link: prismicT.RelationField;
 }
 /**
+ * Item in MainSections → Items
+ *
+ */
+export interface MainSectionsSliceDefaultItem {
+    /**
+     * sections field in *MainSections → Items*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: main_sections.items[].sections
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    sections: prismicT.RelationField;
+}
+/**
  * Default variation for MainSections Slice
  *
  * - **API ID**: `default`
@@ -315,7 +402,7 @@ interface MainSectionsSliceDefaultPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type MainSectionsSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<MainSectionsSliceDefaultPrimary>, never>;
+export type MainSectionsSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<MainSectionsSliceDefaultPrimary>, Simplify<MainSectionsSliceDefaultItem>>;
 /**
  * Slice variation for *MainSections*
  *
@@ -335,6 +422,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { FooterDocumentData, FooterDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, NavbarDocumentData, NavbarDocument, SectionDocumentData, SectionDocumentDataSlicesSlice, SectionDocument, AllDocumentTypes, ContentSliceDefaultItem, ContentSliceDefault, ContentSliceVariation, ContentSlice, MainSectionsSliceDefaultPrimary, MainSectionsSliceDefault, MainSectionsSliceVariation, MainSectionsSlice };
+        export type { FooterDocumentData, FooterDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, NavbarDocumentData, NavbarDocument, SectionDocumentData, SectionDocumentDataSlicesSlice, SectionDocument, AllDocumentTypes, CtaSectionSliceDefaultPrimary, CtaSectionSliceDefault, CtaSectionSliceVariation, CtaSectionSlice, ContentSliceDefaultItem, ContentSliceDefault, ContentSliceVariation, ContentSlice, MainSectionsSliceDefaultPrimary, MainSectionsSliceDefaultItem, MainSectionsSliceDefault, MainSectionsSliceVariation, MainSectionsSlice };
     }
 }

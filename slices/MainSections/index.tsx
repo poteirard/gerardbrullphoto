@@ -1,32 +1,30 @@
-import React from 'react'
-import {PrismicRichText, SliceComponentProps} from '@prismicio/react'
-import {Content} from "@prismicio/client";
-import {PrismicNextImage} from "@prismicio/next";
+import React from "react";
+import {
+  PrismicLink,
+  PrismicText,
+  SliceComponentProps,
+} from "@prismicio/react";
+import { Content } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
 
-export type TextProps = SliceComponentProps<Content.ContentSlice>
+export type TextProps = SliceComponentProps<Content.ContentSlice>;
 
 const MainSections = ({ slice }: TextProps) => {
-    console.log({slice})
-    return (
-        <section>
-        <span className="title">
-          {
-              slice.primary.title ?
-                  <PrismicRichText field={slice.primary.title}/>
-                  : <h2>Template slice, update me!</h2>
-          }
-        </span>
-            {
-                slice.primary.description ?
-                    <PrismicRichText field={slice.primary.description}/>
-                    : <p>start by editing this slice from inside Slice Machine!</p>
-            }
-            <PrismicNextImage
-                className="m-24"
-                field={slice.primary.image}
-            />
-        </section>
-    );
-}
+  return (
+    <section className="relative w-full flex items-center content-center group">
+      <PrismicLink field={slice.primary.link}>
+        <PrismicNextImage
+          field={slice.primary.image}
+          className="group-hover:shadow-2xl dark:group-hover:shadow-blue-400 group-hover:shadow-gray-400"
+        />
+        <div className="w-full absolute bg-white dark:bg-gray-800 bg-opacity-60 dark:bg-opacity-60 group-hover:bg-opacity-90 bottom-2 p-1 md:p-4">
+          <h2 className="tracking-wide dark:text-white text-md md:text-xl text-center">
+            <PrismicText field={slice.primary.title} />
+          </h2>
+        </div>
+      </PrismicLink>
+    </section>
+  );
+};
 
-export default MainSections
+export default MainSections;
