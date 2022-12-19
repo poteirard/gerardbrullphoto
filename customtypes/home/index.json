@@ -29,6 +29,9 @@
             },
             "content": {
               "type": "SharedSlice"
+            },
+            "cta_section": {
+              "type": "SharedSlice"
             }
           }
         }

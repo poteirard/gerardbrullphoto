@@ -19,25 +19,33 @@
               "version": "sktwi1xtmkfgx8626",
               "description": "CtaSection",
               "primary": {
-                "title": {
-                  "type": "StructuredText",
+                "image": {
+                  "type": "Image",
                   "config": {
-                    "single": "heading1",
+                    "label": "Image",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "title": {
+                  "type": "Text",
+                  "config": {
                     "label": "Title",
-                    "placeholder": "This is where it all begins..."
+                    "placeholder": ""
                   }
                 },
                 "description": {
                   "type": "StructuredText",
                   "config": {
-                    "single": "paragraph",
                     "label": "Description",
-                    "placeholder": "A nice description of your feature"
+                    "placeholder": "test",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
                   }
                 }
               },
-              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format",
-              "items": {}
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
             }
           ]
         },
@@ -49,17 +57,20 @@
               {}
             ],
             "primary": {
-              "title": [
-                {
-                  "type": "heading1",
-                  "text": "Beginning",
-                  "spans": []
-                }
-              ],
+              "image": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea"
+              },
+              "title": "beneath",
               "description": [
                 {
                   "type": "paragraph",
-                  "text": "Do cupidatat reprehenderit voluptate mollit commodo cupidatat culpa aliquip Lorem officia irure anim dolore reprehenderit. Magna occaecat adipisicing elit cillum ut veniam minim officia duis in qui cillum cillum.",
+                  "text": "Est et nisi esse aute mollit eiusmod cupidatat.",
                   "spans": []
                 }
               ]

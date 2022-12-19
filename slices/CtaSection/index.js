@@ -1,36 +1,35 @@
-import React from 'react'
-import { PrismicRichText } from '@prismicio/react'
+import React from "react";
+import { PrismicImage, PrismicRichText } from "@prismicio/react";
 
-/**
- * @typedef {import("@prismicio/client").Content.CtaSectionSlice} CtaSectionSlice
- * @typedef {import("@prismicio/react").SliceComponentProps<CtaSectionSlice>} CtaSectionProps
- * @param { CtaSectionProps }
- */
-const CtaSection = ({ slice }) => (
-  <section>
-    <span className="title">
-      {
-        slice.primary.title ?
-        <PrismicRichText field={slice.primary.title}/>
-        : <h2>Template slice, update me!</h2>
-      }
-    </span>
-    {
-      slice.primary.description ?
-      <PrismicRichText field={slice.primary.description}/>
-      : <p>start by editing this slice from inside Slice Machine!</p>
-    }
-    <style jsx>{`
-        section {
-          max-width: 600px;
-          margin: 4em auto;
-          text-align: center;
-        }
-        .title {
-          color: #8592e0;
-        }
-    `}</style>
-  </section>
-)
+const CtaSection = ({ slice }) => {
+  return (
+    <section className="container m-auto grid justify-center  md:flex gap-10 py-20">
+      {slice?.primary?.image ? (
+        <PrismicImage
+          field={slice.primary.image}
+          width={200}
+          className="rounded-full md:h-50 md:w-50 shadow-2xl shadow-purple-400 m-auto"
+        />
+      ) : (
+        <></>
+      )}
+      <div>
+        <h3 className="text-3xl pb-4 ">{slice?.primary?.title}</h3>
+        {slice?.primary?.description ? (
+          <div className="text-sm">
+            <PrismicRichText
+              field={slice?.primary?.description}
+              components={{
+                paragraph: ({ children }) => <p className="py-2">{children}</p>,
+              }}
+            />
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
+    </section>
+  );
+};
 
-export default CtaSection
+export default CtaSection;

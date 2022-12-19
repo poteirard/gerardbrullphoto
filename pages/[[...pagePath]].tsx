@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SliceZone } from "@prismicio/react";
+import { SliceZone, SliceZoneLike } from "@prismicio/react";
 
 import { components } from "../slices";
 
@@ -11,11 +11,25 @@ import { ReactNode } from "react";
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-function MainSectionLayout({ children }: { children: ReactNode }) {
+function MainSectionLayout({ slices }: { slices: SliceZoneLike }) {
+  let restSlices: SliceZoneLike[] = [];
+  const mainSectionSlices = slices.filter((slice) => {
+    if (slice.slice_type !== "main_sections") {
+      restSlices.push(slice);
+      return false;
+    }
+    return true;
+  });
+  console.log({ restSlices });
   return (
-    <div className="grid md:flex shrink-0 space-between w-full h-full">
-      {children}
-    </div>
+    <>
+      <div className="grid md:flex shrink-0 space-between w-full h-full">
+        <SliceZone slices={mainSectionSlices} components={components} />
+      </div>
+      <div className="container mx-auto px-4">
+        <SliceZone slices={restSlices} components={components} />
+      </div>
+    </>
   );
 }
 
@@ -30,11 +44,10 @@ const Page = ({ page, navbar }: PageProps) => {
           content={page.data.meta_description || "default"}
         />
         <meta name="keywords" content={page.data.meta_tags || "default"} />
+        <meta name="og:type" content="website" />
       </Head>
       {page.type === "home" ? (
-        <MainSectionLayout>
-          <SliceZone slices={slices} components={components} />
-        </MainSectionLayout>
+        <MainSectionLayout slices={slices} />
       ) : (
         <SliceZone slices={slices} components={components} />
       )}

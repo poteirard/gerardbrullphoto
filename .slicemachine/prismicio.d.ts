@@ -80,7 +80,7 @@ interface HomeDocumentData {
  * Slice for *Homepage → Slice Zone*
  *
  */
-type HomeDocumentDataSlicesSlice = MainSectionsSlice | ContentSlice;
+type HomeDocumentDataSlicesSlice = MainSectionsSlice | ContentSlice | CtaSectionSlice;
 /**
  * Homepage document from Prismic
  *
@@ -250,20 +250,30 @@ export type AllDocumentTypes = FooterDocument | HomeDocument | NavbarDocument | 
  */
 interface CtaSectionSliceDefaultPrimary {
     /**
-     * Title field in *CtaSection → Primary*
+     * Image field in *CtaSection → Primary*
      *
-     * - **Field Type**: Title
-     * - **Placeholder**: This is where it all begins...
-     * - **API ID Path**: cta_section.primary.title
-     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: cta_section.primary.image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
      *
      */
-    title: prismicT.TitleField;
+    image: prismicT.ImageField<never>;
+    /**
+     * Title field in *CtaSection → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: cta_section.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
     /**
      * Description field in *CtaSection → Primary*
      *
      * - **Field Type**: Rich Text
-     * - **Placeholder**: A nice description of your feature
+     * - **Placeholder**: *None*
      * - **API ID Path**: cta_section.primary.description
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *

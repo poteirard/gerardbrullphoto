@@ -11,13 +11,12 @@ export function Navbar({ navbar }: { navbar: NavbarDocument }) {
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
   return (
-    <nav className="flex gap-6 md:gap-20 px-4 py-2 md:py-6 justify-evenly">
+    <nav className="flex gap-6 md:gap-20 px-4 py-2 md:py-6 container justify-between sticky">
       <div className="w-34 md:w-56 flex content-center items-center">
         <PrismicLink field={navbar?.data?.home_link}>
           <PrismicNextImage
             field={navbar?.data?.logo}
-            imgixParams={{ invert: theme === "dark" }}
-            width="200"
+            className="dark:invert w-48 md:w-72 h-auto"
           />
         </PrismicLink>
       </div>
