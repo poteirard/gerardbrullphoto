@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SliceZone, SliceZoneLike } from "@prismicio/react";
+import { SliceZone } from "@prismicio/react";
 
 import { components } from "../slices";
 
@@ -7,31 +7,9 @@ import { Layout } from "../components/Layout";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { createClient, linkResolver } from "../prismicio";
 import { asLink } from "@prismicio/helpers";
-import { ReactNode } from "react";
+import { MainSectionLayout } from "../components/MainSectionLayout";
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
-
-function MainSectionLayout({ slices }: { slices: SliceZoneLike }) {
-  let restSlices: SliceZoneLike[] = [];
-  const mainSectionSlices = slices.filter((slice) => {
-    if (slice.slice_type !== "main_sections") {
-      restSlices.push(slice);
-      return false;
-    }
-    return true;
-  });
-  console.log({ restSlices });
-  return (
-    <>
-      <div className="grid md:flex shrink-0 space-between w-full h-full">
-        <SliceZone slices={mainSectionSlices} components={components} />
-      </div>
-      <div className="container mx-auto px-4">
-        <SliceZone slices={restSlices} components={components} />
-      </div>
-    </>
-  );
-}
 
 const Page = ({ page, navbar }: PageProps) => {
   const { slices } = page.data;

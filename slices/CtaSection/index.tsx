@@ -1,14 +1,20 @@
 import React from "react";
-import { PrismicImage, PrismicRichText } from "@prismicio/react";
+import {
+  PrismicImage,
+  PrismicRichText,
+  SliceComponentProps,
+} from "@prismicio/react";
+import type { Content } from "@prismicio/client";
+export type TextProps = SliceComponentProps<Content.ContentSlice>;
 
-const CtaSection = ({ slice }) => {
+const CtaSection = ({ slice }: TextProps) => {
   return (
     <section className="container m-auto grid justify-center  md:flex gap-10 py-20">
       {slice?.primary?.image ? (
         <PrismicImage
           field={slice.primary.image}
-          width={200}
-          className="rounded-full md:h-50 md:w-50 shadow-2xl shadow-purple-400 m-auto"
+          width={150}
+          className="rounded-full md:h-56 md:w-56 shadow-2xl shadow-purple-400 m-auto"
         />
       ) : (
         <></>

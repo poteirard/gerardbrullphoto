@@ -11,7 +11,7 @@ export function Navbar({ navbar }: { navbar: NavbarDocument }) {
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
   return (
-    <nav className="flex gap-6 md:gap-20 px-4 py-2 md:py-6 container justify-between sticky">
+    <nav className="flex gap-6 md:gap-20 px-4 py-2 md:py-6 container m-auto justify-between">
       <div className="w-34 md:w-56 flex content-center items-center">
         <PrismicLink field={navbar?.data?.home_link}>
           <PrismicNextImage
