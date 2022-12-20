@@ -17,7 +17,7 @@ export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint);
 const routes = [
   {
     type: "section",
-    path: "/:uid",
+    path: "/category/:uid",
   },
   {
     type: "home",
@@ -27,12 +27,8 @@ const routes = [
 ];
 
 export const linkResolver: LinkResolverFunction = (link) => {
-  if (link.type === "section" || link.type === "home") {
-    if (link.uid === "home") {
-      return "/";
-    }
-
-    return `/${link.uid}`;
+  if (link.type === "section") {
+    return `/category/${link.uid}`;
   }
 
   return "/";

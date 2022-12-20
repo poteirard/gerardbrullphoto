@@ -1,7 +1,4 @@
 import Head from "next/head";
-import { SliceZone } from "@prismicio/react";
-
-import { components } from "../slices";
 
 import { Layout } from "../components/Layout";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
@@ -24,33 +21,19 @@ const Page = ({ page, navbar }: PageProps) => {
         <meta name="keywords" content={page.data.meta_tags || "default"} />
         <meta name="og:type" content="website" />
       </Head>
-      {page.type === "home" ? (
-        <MainSectionLayout slices={slices} />
-      ) : (
-        <SliceZone slices={slices} components={components} />
-      )}
+      <MainSectionLayout slices={slices} />
     </Layout>
   );
 };
 
 export default Page;
 
-export async function getStaticProps({
-  params,
-  previewData,
-}: GetStaticPropsContext) {
+export async function getStaticProps({ previewData }: GetStaticPropsContext) {
   const client = createClient({ previewData });
-
-  const uid = params?.pagePath?.[params.pagePath.length - 1];
-  let page;
-
-  if (uid) {
-    page = await client.getByUID("section", uid);
-  } else {
-    page = await client.getByUID("home", "home");
-  }
-  const navbar = await client.getSingle("navbar");
-
+  const [page, navbar] = await Promise.all([
+    client.getByUID("home", "home"),
+    client.getSingle("navbar"),
+  ]);
   return {
     props: {
       page,
@@ -62,13 +45,9 @@ export async function getStaticProps({
 export async function getStaticPaths() {
   const client = createClient();
 
-  const [home, pages] = await Promise.all([
-    client.getAllByType("home"),
-    client.getAllByType("section"),
-  ]);
-
+  const home = await client.getAllByType("home");
   return {
-    paths: [...pages, ...home].map((page) => asLink(page, linkResolver)),
+    paths: home.map((page) => asLink(page, linkResolver)),
     fallback: false,
   };
 }
