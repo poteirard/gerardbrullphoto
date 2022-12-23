@@ -25,7 +25,8 @@ const Page = ({ page, navbar, footer, go_home_button }: PageProps) => {
           name="description"
           content={page?.data.meta_description || "default"}
         />
-        <meta name="keywords" content={page?.data.meta_tags || "default"} />
+        {/* TODO: add seo keyboards in sections
+        <meta name="keywords" content={page?.data.meta_tags || "default"} />*/}
         <meta name="og:type" content="website" />
       </Head>
       <div className="container m-auto dark:bg-gray-900">

@@ -29,6 +29,7 @@ export const LanguageSwitcher = ({ altLangs = [] }: LanguageSwitcherProps) => {
           <li key={altLang.lang} className="button">
             <PrismicLink
               href={linkResolver(altLang as any)}
+              // @ts-ignore TODO: not sure how to type this
               locale={altLang.lang}
               className="h-9 p-2 flex items-center justify-center"
               aria-label={`Change language to ${altLang.lang}`}

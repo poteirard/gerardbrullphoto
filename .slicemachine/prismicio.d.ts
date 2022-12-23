@@ -133,6 +133,17 @@ interface HomeDocumentData {
      *
      */
     meta_tags: prismicT.KeyTextField;
+    /**
+     * Meta Image field in *Homepage*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: home.meta_image
+     * - **Tab**: SEO
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    meta_image: prismicT.ImageField<never>;
 }
 /**
  * Slice for *Homepage → Slice Zone*

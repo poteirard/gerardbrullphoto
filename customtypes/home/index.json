@@ -61,6 +61,14 @@
           "label": "Meta Tags",
           "placeholder": ""
         }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Meta Image",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     }
   }

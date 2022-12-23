@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Layout } from "../components/Layout";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { createClient, linkResolver } from "../prismicio";
-import { asLink } from "@prismicio/helpers";
+import { asImageSrc, asLink } from "@prismicio/helpers";
 import { MainSectionLayout } from "../components/MainSectionLayout";
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
@@ -20,6 +20,7 @@ const Page = ({ page, navbar, footer }: PageProps) => {
         />
         <meta name="keywords" content={page.data.meta_tags || "default"} />
         <meta name="og:type" content="website" />
+        <meta name="og:image" content={`${asImageSrc(page.data.meta_image)}`} />
       </Head>
       <MainSectionLayout slices={slices} />
     </Layout>
