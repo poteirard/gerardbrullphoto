@@ -12,6 +12,7 @@ import "../styles/dist.css";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName, linkResolver } from "../prismicio";
 import { ThemeProvider } from "next-themes";
+import { Analytics } from "@vercel/analytics/react";
 
 const NextLinkShim = ({
   href,
@@ -46,6 +47,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <PrismicPreview repositoryName={repositoryName}>
         <ThemeProvider enableSystem={true} attribute="class">
           <Component {...pageProps} />
+          <Analytics />
         </ThemeProvider>
       </PrismicPreview>
     </PrismicProvider>
