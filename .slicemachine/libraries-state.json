@@ -267,6 +267,154 @@
           "extension": "tsx"
         },
         "screenshotPaths": {}
+      },
+      "social_links": {
+        "library": "slices",
+        "id": "social_links",
+        "name": "SocialLinks",
+        "description": "SocialLinks",
+        "model": {
+          "id": "social_links",
+          "type": "SharedSlice",
+          "name": "SocialLinks",
+          "description": "SocialLinks",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "SocialLinks",
+              "primary": {
+                "title": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Title",
+                    "placeholder": ""
+                  }
+                },
+                "description": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Description",
+                    "placeholder": ""
+                  }
+                },
+                "facebook_logo": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Logo facebook",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "facebook": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Facebook",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "select": null
+                  }
+                },
+                "instagram_logo": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Instagram Logo",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "instagram": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Instagram",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "select": null
+                  }
+                },
+                "email_logo": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Email logo",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                },
+                "email": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Email",
+                    "placeholder": "",
+                    "allowTargetBlank": false,
+                    "select": null
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "title": "original",
+              "description": "easier",
+              "facebook_logo": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2"
+              },
+              "facebook": {
+                "link_type": "Web",
+                "url": "https://prismic.io"
+              },
+              "instagram_logo": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1591012911207-0dbac31f37da"
+              },
+              "instagram": {
+                "link_type": "Web",
+                "url": "http://twitter.com"
+              },
+              "email_logo": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a"
+              },
+              "email": {
+                "link_type": "Web",
+                "url": "https://slicemachine.dev"
+              }
+            },
+            "slice_type": "social_links"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "tsx"
+        },
+        "screenshotPaths": {}
       }
     }
   }

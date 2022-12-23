@@ -9,22 +9,22 @@ import { LinkResolverFunction } from "@prismicio/helpers";
  */
 export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint);
 
-/**
- * The project's Prismic Route Resolvers. This list determines a Prismic document's URL.
- *
- * @type {prismic.ClientConfig['routes']}
- */
-const routes = [
-  {
-    type: "section",
-    path: "/category/:uid",
-  },
-  {
-    type: "home",
-    uid: "home",
-    path: "/",
-  },
-];
+// /**
+//  * The project's Prismic Route Resolvers. This list determines a Prismic document's URL.
+//  *
+//  * @type {prismic.ClientConfig['routes']}
+//  */
+// const routes = [
+//   {
+//     type: "section",
+//     path: "/category/:uid",
+//   },
+//   {
+//     type: "home",
+//     uid: "home",
+//     path: "/",
+//   },
+// ];
 
 export const linkResolver: LinkResolverFunction = (link) => {
   if (link.type === "section") {
@@ -44,10 +44,7 @@ export const createClient = ({
   req,
   ...config
 }: CreateClientConfig = {}) => {
-  const client = prismic.createClient(sm.apiEndpoint, {
-    routes,
-    ...config,
-  });
+  const client = prismic.createClient(sm.apiEndpoint, config);
 
   prismicNext.enableAutoPreviews({ client, previewData, req });
 

@@ -8,10 +8,10 @@ import { MainSectionLayout } from "../components/MainSectionLayout";
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-const Page = ({ page, navbar }: PageProps) => {
+const Page = ({ page, navbar, footer }: PageProps) => {
   const { slices } = page.data;
   return (
-    <Layout navbar={navbar}>
+    <Layout navbar={navbar} footer={footer} altLangs={page.alternate_languages}>
       <Head>
         <title>{page.data.meta_title}</title>
         <meta
@@ -28,26 +28,21 @@ const Page = ({ page, navbar }: PageProps) => {
 
 export default Page;
 
-export async function getStaticProps({ previewData }: GetStaticPropsContext) {
+export async function getStaticProps({
+  previewData,
+  locale,
+}: GetStaticPropsContext) {
   const client = createClient({ previewData });
-  const [page, navbar] = await Promise.all([
-    client.getByUID("home", "home"),
-    client.getSingle("navbar"),
+  const [page, navbar, footer] = await Promise.all([
+    client.getByUID("home", "home", { lang: locale }),
+    client.getSingle("navbar", { lang: locale }),
+    client.getSingle("footer", { lang: locale }),
   ]);
   return {
     props: {
       page,
       navbar,
+      footer,
     },
-  };
-}
-
-export async function getStaticPaths() {
-  const client = createClient();
-
-  const home = await client.getAllByType("home");
-  return {
-    paths: home.map((page) => asLink(page, linkResolver)),
-    fallback: false,
   };
 }

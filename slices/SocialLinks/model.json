@@ -1,0 +1,84 @@
+{
+  "id": "social_links",
+  "type": "SharedSlice",
+  "name": "SocialLinks",
+  "description": "SocialLinks",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "SocialLinks",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "facebook_logo": {
+          "type": "Image",
+          "config": {
+            "label": "Logo facebook",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "facebook": {
+          "type": "Link",
+          "config": {
+            "label": "Facebook",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
+          }
+        },
+        "instagram_logo": {
+          "type": "Image",
+          "config": {
+            "label": "Instagram Logo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "instagram": {
+          "type": "Link",
+          "config": {
+            "label": "Instagram",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
+          }
+        },
+        "email_logo": {
+          "type": "Image",
+          "config": {
+            "label": "Email logo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "email": {
+          "type": "Link",
+          "config": {
+            "label": "Email",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

@@ -4,8 +4,15 @@ import { PrismicNextImage } from "@prismicio/next";
 import { ThemeToggle } from "./ThemeToggle";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { AlternateLanguage } from "@prismicio/types";
+import LanguageSwitcher from "./LanguageSwitcher";
 
-export function Navbar({ navbar }: { navbar: NavbarDocument }) {
+interface NavbarProps {
+  altLangs: AlternateLanguage[];
+  navbar: NavbarDocument;
+}
+
+export function Navbar({ navbar, altLangs }: NavbarProps) {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -20,12 +27,12 @@ export function Navbar({ navbar }: { navbar: NavbarDocument }) {
           />
         </PrismicLink>
       </div>
-      <div className="flex content-center items-center text-[0.5rem] md:text-xs dark:text-gray-200">
+      <div className="w-34 md:w-56 flex content-center items-center text-[0.5rem] md:text-xs dark:text-gray-200">
         <p className="text-shadow-black dark:text-shadow-white w-full text-center">
           {navbar?.data?.title}
         </p>
       </div>
-      <div className="flex content-center items-center justify-end w-10">
+      <div className="w-34 md:w-56 flex content-center items-center justify-end w-10">
         <ThemeToggle
           renderIcon={(theme) => {
             return (
@@ -41,6 +48,7 @@ export function Navbar({ navbar }: { navbar: NavbarDocument }) {
             );
           }}
         />
+        <LanguageSwitcher altLangs={altLangs} />
       </div>
     </nav>
   );

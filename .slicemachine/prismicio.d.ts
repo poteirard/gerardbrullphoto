@@ -7,7 +7,19 @@ type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
 /** Content for Footer documents */
-type FooterDocumentData = Record<string, never>;
+interface FooterDocumentData {
+    /**
+     * Copyright Text field in *Footer*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: footer.copyright_text
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    copyright_text: prismicT.KeyTextField;
+}
 /**
  * Footer document from Prismic
  *
@@ -80,7 +92,7 @@ interface HomeDocumentData {
  * Slice for *Homepage → Slice Zone*
  *
  */
-type HomeDocumentDataSlicesSlice = MainSectionsSlice | ContentSlice | CtaSectionSlice;
+type HomeDocumentDataSlicesSlice = MainSectionsSlice | ContentSlice | CtaSectionSlice | SocialLinksSlice;
 /**
  * Homepage document from Prismic
  *
@@ -273,7 +285,7 @@ interface CtaSectionSliceDefaultPrimary {
      * Description field in *CtaSection → Primary*
      *
      * - **Field Type**: Rich Text
-     * - **Placeholder**: *None*
+     * - **Placeholder**: test
      * - **API ID Path**: cta_section.primary.description
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
@@ -427,11 +439,120 @@ type MainSectionsSliceVariation = MainSectionsSliceDefault;
  *
  */
 export type MainSectionsSlice = prismicT.SharedSlice<"main_sections", MainSectionsSliceVariation>;
+/**
+ * Primary content in SocialLinks → Primary
+ *
+ */
+interface SocialLinksSliceDefaultPrimary {
+    /**
+     * Title field in *SocialLinks → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: social_links.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Description field in *SocialLinks → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: social_links.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    description: prismicT.KeyTextField;
+    /**
+     * Logo facebook field in *SocialLinks → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: social_links.primary.facebook_logo
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    facebook_logo: prismicT.ImageField<never>;
+    /**
+     * Facebook field in *SocialLinks → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: social_links.primary.facebook
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    facebook: prismicT.LinkField;
+    /**
+     * Instagram Logo field in *SocialLinks → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: social_links.primary.instagram_logo
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    instagram_logo: prismicT.ImageField<never>;
+    /**
+     * Instagram field in *SocialLinks → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: social_links.primary.instagram
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    instagram: prismicT.LinkField;
+    /**
+     * Email logo field in *SocialLinks → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: social_links.primary.email_logo
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    email_logo: prismicT.ImageField<never>;
+    /**
+     * Email field in *SocialLinks → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: social_links.primary.email
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    email: prismicT.LinkField;
+}
+/**
+ * Default variation for SocialLinks Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `SocialLinks`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SocialLinksSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<SocialLinksSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *SocialLinks*
+ *
+ */
+type SocialLinksSliceVariation = SocialLinksSliceDefault;
+/**
+ * SocialLinks Shared Slice
+ *
+ * - **API ID**: `social_links`
+ * - **Description**: `SocialLinks`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SocialLinksSlice = prismicT.SharedSlice<"social_links", SocialLinksSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { FooterDocumentData, FooterDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, NavbarDocumentData, NavbarDocument, SectionDocumentData, SectionDocumentDataSlicesSlice, SectionDocument, AllDocumentTypes, CtaSectionSliceDefaultPrimary, CtaSectionSliceDefault, CtaSectionSliceVariation, CtaSectionSlice, ContentSliceDefaultItem, ContentSliceDefault, ContentSliceVariation, ContentSlice, MainSectionsSliceDefaultPrimary, MainSectionsSliceDefaultItem, MainSectionsSliceDefault, MainSectionsSliceVariation, MainSectionsSlice };
+        export type { FooterDocumentData, FooterDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, NavbarDocumentData, NavbarDocument, SectionDocumentData, SectionDocumentDataSlicesSlice, SectionDocument, AllDocumentTypes, CtaSectionSliceDefaultPrimary, CtaSectionSliceDefault, CtaSectionSliceVariation, CtaSectionSlice, ContentSliceDefaultItem, ContentSliceDefault, ContentSliceVariation, ContentSlice, MainSectionsSliceDefaultPrimary, MainSectionsSliceDefaultItem, MainSectionsSliceDefault, MainSectionsSliceVariation, MainSectionsSlice, SocialLinksSliceDefaultPrimary, SocialLinksSliceDefault, SocialLinksSliceVariation, SocialLinksSlice };
     }
 }

@@ -14,10 +14,9 @@ export function MainSectionLayout({ slices }: MainSectionLayoutProps) {
     }
     return true;
   });
-  console.log({ restSlices });
   return (
     <>
-      <div className="grid md:flex shrink-0 space-between w-full h-full">
+      <div className="container mx-auto grid md:flex shrink-0 space-between w-full h-full">
         <SliceZone slices={mainSectionSlices} components={components} />
       </div>
       <div className="container mx-auto px-4">
