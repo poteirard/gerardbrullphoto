@@ -1,5 +1,6 @@
 import { SliceZone, SliceZoneProps } from "@prismicio/react";
 import { components } from "../slices";
+import Link from "next/link";
 
 interface MainSectionLayoutProps {
   slices: SliceZoneProps["slices"];
@@ -24,6 +25,7 @@ export function MainSectionLayout({ slices }: MainSectionLayoutProps) {
           slices={restSlices.length ? restSlices : undefined}
           components={components}
         />
+        <Link href="/">Go home</Link>
       </div>
     </>
   );

@@ -12,7 +12,7 @@ export type TextProps = SliceComponentProps<Content.ContentSlice>;
 const MainSections = ({ slice }: TextProps) => {
   return (
     <section className="relative w-full flex flex-wrap items-center content-center group hover:shadow-2xl dark:hover:shadow-blue-400 hover:shadow-gray-400">
-      <PrismicLink field={slice.primary.link}>
+      <PrismicLink document={slice.primary.link}>
         <PrismicNextImage
           field={slice.primary.image}
           width="1000"

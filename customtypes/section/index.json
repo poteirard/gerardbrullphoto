@@ -33,6 +33,9 @@
           "choices": {
             "content": {
               "type": "SharedSlice"
+            },
+            "go_home_button": {
+              "type": "SharedSlice"
             }
           }
         }

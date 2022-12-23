@@ -1,0 +1,35 @@
+{
+  "id": "go_home_button",
+  "label": "Go Home",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "link": {
+        "type": "Link",
+        "config": {
+          "label": "Link ",
+          "select": "document"
+        }
+      },
+      "label": {
+        "type": "Text",
+        "config": {
+          "label": "Label",
+          "placeholder": ""
+        }
+      },
+      "icon": {
+        "type": "Image",
+        "config": {
+          "label": "icon",
+          "constraint": {
+            "width": 15,
+            "height": 15
+          },
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

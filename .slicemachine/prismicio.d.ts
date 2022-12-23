@@ -30,6 +30,52 @@ interface FooterDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type FooterDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<FooterDocumentData>, "footer", Lang>;
+/** Content for Go Home documents */
+interface GoHomeButtonDocumentData {
+    /**
+     * Link  field in *Go Home*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: go_home_button.link
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.RelationField;
+    /**
+     * Label field in *Go Home*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: go_home_button.label
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    label: prismicT.KeyTextField;
+    /**
+     * icon field in *Go Home*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: go_home_button.icon
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    icon: prismicT.ImageField<never>;
+}
+/**
+ * Go Home document from Prismic
+ *
+ * - **API ID**: `go_home_button`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GoHomeButtonDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<GoHomeButtonDocumentData>, "go_home_button", Lang>;
 /** Content for Homepage documents */
 interface HomeDocumentData {
     /**
@@ -244,7 +290,7 @@ interface SectionDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type SectionDocumentDataSlicesSlice = ContentSlice;
+type SectionDocumentDataSlicesSlice = ContentSlice | GoHomeButtonSlice;
 /**
  * Page document from Prismic
  *
@@ -255,7 +301,7 @@ type SectionDocumentDataSlicesSlice = ContentSlice;
  * @typeParam Lang - Language API ID of the document.
  */
 export type SectionDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<SectionDocumentData>, "section", Lang>;
-export type AllDocumentTypes = FooterDocument | HomeDocument | NavbarDocument | SectionDocument;
+export type AllDocumentTypes = FooterDocument | GoHomeButtonDocument | HomeDocument | NavbarDocument | SectionDocument;
 /**
  * Primary content in CtaSection → Primary
  *
@@ -553,6 +599,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { FooterDocumentData, FooterDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, NavbarDocumentData, NavbarDocument, SectionDocumentData, SectionDocumentDataSlicesSlice, SectionDocument, AllDocumentTypes, CtaSectionSliceDefaultPrimary, CtaSectionSliceDefault, CtaSectionSliceVariation, CtaSectionSlice, ContentSliceDefaultItem, ContentSliceDefault, ContentSliceVariation, ContentSlice, MainSectionsSliceDefaultPrimary, MainSectionsSliceDefaultItem, MainSectionsSliceDefault, MainSectionsSliceVariation, MainSectionsSlice, SocialLinksSliceDefaultPrimary, SocialLinksSliceDefault, SocialLinksSliceVariation, SocialLinksSlice };
+        export type { FooterDocumentData, FooterDocument, GoHomeButtonDocumentData, GoHomeButtonDocument, HomeDocumentData, HomeDocumentDataSlicesSlice, HomeDocument, NavbarDocumentData, NavbarDocument, SectionDocumentData, SectionDocumentDataSlicesSlice, SectionDocument, AllDocumentTypes, CtaSectionSliceDefaultPrimary, CtaSectionSliceDefault, CtaSectionSliceVariation, CtaSectionSlice, ContentSliceDefaultItem, ContentSliceDefault, ContentSliceVariation, ContentSlice, MainSectionsSliceDefaultPrimary, MainSectionsSliceDefaultItem, MainSectionsSliceDefault, MainSectionsSliceVariation, MainSectionsSlice, SocialLinksSliceDefaultPrimary, SocialLinksSliceDefault, SocialLinksSliceVariation, SocialLinksSlice };
     }
 }

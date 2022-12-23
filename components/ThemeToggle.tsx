@@ -13,7 +13,7 @@ export const ThemeToggle = ({ renderIcon }: ThemeToggleProps) => {
   return (
     <button
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      className="bg-gray-400  hover:bg-opacity-20 bg-opacity-10 dark:bg-opacity-30 dark:hover:bg-opacity-50 p-2 rounded-xl"
+      className="bg-gray-400 w-9  hover:bg-opacity-20 bg-opacity-10 dark:bg-opacity-30 dark:hover:bg-opacity-50 p-2 rounded-xl"
       aria-label="Toggle Dark Mode"
     >
       {renderIcon(theme)}

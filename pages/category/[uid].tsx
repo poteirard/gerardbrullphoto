@@ -10,10 +10,15 @@ import { asLink } from "@prismicio/helpers";
 
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-const Page = ({ page, navbar, footer }: PageProps) => {
+const Page = ({ page, navbar, footer, go_home_button }: PageProps) => {
   const { slices, title } = page?.data;
   return (
-    <Layout navbar={navbar} altLangs={page.alternate_languages} footer={footer}>
+    <Layout
+      navbar={navbar}
+      altLangs={page.alternate_languages}
+      footer={footer}
+      goHomeButton={go_home_button}
+    >
       <Head>
         <title>{page?.data.meta_title}</title>
         <meta
@@ -43,16 +48,18 @@ export async function getStaticProps({
   locale,
 }: GetStaticPropsContext) {
   const client = createClient({ previewData });
-  const [page, navbar, footer] = await Promise.all([
+  const [page, navbar, footer, go_home_button] = await Promise.all([
     client.getByUID("section", params?.uid as string, { lang: locale }),
     client.getSingle("navbar", { lang: locale }),
     client.getSingle("footer", { lang: locale }),
+    client.getSingle("go_home_button", { lang: locale }),
   ]);
   return {
     props: {
       page,
       navbar,
       footer,
+      go_home_button,
     },
   };
 }

@@ -143,6 +143,68 @@
         },
         "screenshotPaths": {}
       },
+      "go_home_button": {
+        "library": "slices",
+        "id": "go_home_button",
+        "name": "GoHomeButton",
+        "description": "GoHomeButton",
+        "model": {
+          "id": "go_home_button",
+          "type": "SharedSlice",
+          "name": "GoHomeButton",
+          "description": "GoHomeButton",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "GoHomeButton",
+              "primary": {
+                "link": {
+                  "type": "Link",
+                  "config": {
+                    "label": "Link",
+                    "placeholder": "",
+                    "select": null
+                  }
+                },
+                "label": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Label",
+                    "placeholder": ""
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "link": {
+                "link_type": "Web",
+                "url": "https://slicemachine.dev"
+              },
+              "label": "rock"
+            },
+            "slice_type": "go_home_button"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
       "main_sections": {
         "library": "slices",
         "id": "main_sections",

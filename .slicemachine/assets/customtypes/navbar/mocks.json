@@ -1,54 +1,82 @@
 {
-  "id": "mock-doc-id",
-  "url": null,
-  "type": "navbar",
-  "href": null,
-  "tags": [],
-  "first_publication_date": "1970-01-01T00:00:01+0000",
-  "last_publication_date": "1970-01-01T00:00:01+0000",
-  "slugs": [],
-  "linked_documents": [],
-  "lang": "en-us",
-  "alternate_languages": [],
-  "data": {
-    "dark_icon": {
-      "dimensions": {
-        "width": 900,
-        "height": 500
-      },
-      "alt": null,
-      "copyright": null,
-      "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43"
+  "dark_icon": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+      "width": 3277,
+      "height": 4092
     },
-    "light_icon": {
-      "dimensions": {
-        "width": 900,
-        "height": 500
+    "url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+    "width": 3277,
+    "height": 4092,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 0,
+        "y": 0
       },
-      "alt": null,
-      "copyright": null,
-      "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8"
+      "background": "transparent"
     },
-    "title": "large",
-    "home_name": "quick",
-    "home_link": {
-      "id": "mock_document_id",
-      "link_type": "Document",
-      "type": "mock",
-      "tags": [],
-      "lang": "en-us",
-      "slug": null,
-      "first_publication_date": "1970-01-01T00:00:01+0000",
-      "last_publication_date": "1970-01-01T01:00:00+0000"
+    "thumbnails": {}
+  },
+  "light_icon": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
+      "width": 4000,
+      "height": 4000
     },
-    "logo": {
-      "dimensions": {
-        "width": 900,
-        "height": 500
+    "url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
+    "width": 4000,
+    "height": 4000,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 0,
+        "y": 0
       },
-      "alt": null,
-      "copyright": null,
-      "url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118"
+      "background": "transparent"
+    },
+    "thumbnails": {}
+  },
+  "title": {
+    "__TYPE__": "FieldContent",
+    "value": "driving",
+    "type": "Text"
+  },
+  "home_name": {
+    "__TYPE__": "FieldContent",
+    "value": "society",
+    "type": "Text"
+  },
+  "home_link": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "__TYPE__": "DocumentLink",
+      "id": "mock_document_id"
     }
+  },
+  "logo": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
+      "width": 4000,
+      "height": 4000
+    },
+    "url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
+    "width": 4000,
+    "height": 4000,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 0,
+        "y": 0
+      },
+      "background": "transparent"
+    },
+    "thumbnails": {}
   }
 }

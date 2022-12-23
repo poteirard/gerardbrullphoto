@@ -3,7 +3,8 @@
     "navbar": {},
     "home": {},
     "footer": {},
-    "section": {}
+    "section": {},
+    "go_home_button": {}
   },
   "slices": {
     "Content": {},
@@ -38,6 +39,11 @@
     "SocialLinks": {
       "default": {
         "items": {},
+        "primary": {}
+      }
+    },
+    "GoHomeButton": {
+      "default": {
         "primary": {}
       }
     }
