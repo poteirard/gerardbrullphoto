@@ -18,6 +18,7 @@ const MainSections = ({ slice }: TextProps) => {
           width="1000"
           height="500"
           imgixParams={{ fit: "crop", ar: "2:1" }}
+          priority={true}
         />
         <div className="w-full absolute bg-white dark:bg-gray-800 bg-opacity-60 dark:bg-opacity-60 group-hover:bg-opacity-90 bottom-2 p-1 md:p-4">
           <h2 className="tracking-wide dark:text-white text-md md:text-xl text-center">

@@ -14,7 +14,7 @@ const mapLangToFlagCode: Record<string, string> = {
 const LangIcon = ({ lang }: LangIconProps) => {
   const code = lang.substring(3).toLowerCase();
   let cssClass = `fi fi-${mapLangToFlagCode[lang] || code}`;
-  return <span className={cssClass} />;
+  return <span className={`${cssClass}`} />;
 };
 
 interface LanguageSwitcherProps {
@@ -26,13 +26,12 @@ export const LanguageSwitcher = ({ altLangs = [] }: LanguageSwitcherProps) => {
     <ul>
       {altLangs.map((altLang) => {
         return (
-          <li
-            key={altLang.lang}
-            className="flex items-center h-9 bg-gray-400 hover:bg-opacity-20 bg-opacity-10 dark:bg-opacity-30 dark:hover:bg-opacity-50 p-2 rounded-xl"
-          >
+          <li key={altLang.lang} className="button">
             <PrismicLink
               href={linkResolver(altLang as any)}
               locale={altLang.lang}
+              className="h-9 p-2 flex items-center justify-center"
+              aria-label={`Change language to ${altLang.lang}`}
             >
               <LangIcon lang={altLang.lang} />
             </PrismicLink>

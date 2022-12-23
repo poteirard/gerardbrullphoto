@@ -11,11 +11,11 @@ export function GoHomeButtonSection({ goHomeButton }: GoHomeButtonSection) {
     <section className="flex justify-center pt-4 pb-10">
       <PrismicLink
         field={goHomeButton.data.link}
-        className="group bg-gray-400  hover:bg-opacity-20 bg-opacity-10 dark:bg-opacity-30 dark:hover:bg-opacity-50 px-4 py-1 rounded-xl flex gap-1"
+        className="group button px-4 py-1 flex gap-1"
       >
         <PrismicNextImage
           field={goHomeButton.data.icon}
-          className="dark:invert group-hover:animate-pulse"
+          className="dark:invert group-hover:animate-pulse w-5"
         />
         <span className="py-1">{goHomeButton.data.label}</span>
       </PrismicLink>

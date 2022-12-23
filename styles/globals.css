@@ -14,6 +14,17 @@
     .text-shadow-none {
       text-shadow: none;
     }
+    .button {
+        @apply dark:shadow-[0_0_30px_-13px_rgba(0,0,0,0.1)] dark:shadow-cyan-600 rounded-xl ;
+    }
+    .dark .button {
+        background: rgba(145, 235, 232, 0.13);
+        backdrop-filter: blur(3.5px);
+        border: 1px solid rgba(145, 235, 232, 0.43);
+    }
+    .button:hover {
+        @apply dark:shadow-[0_0_30px_-5px_rgba(0,0,0,0.1)]  dark:shadow-cyan-400 ;
+    }
 
 }
 

@@ -6,17 +6,17 @@ interface ThemeToggleProps {
 }
 
 export const ThemeToggle = ({ renderIcon }: ThemeToggleProps) => {
-  const { theme, setTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
   return (
     <button
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      className="bg-gray-400 w-9  hover:bg-opacity-20 bg-opacity-10 dark:bg-opacity-30 dark:hover:bg-opacity-50 p-2 rounded-xl"
+      onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+      className="w-9 button p-2"
       aria-label="Toggle Dark Mode"
     >
-      {renderIcon(theme)}
+      {renderIcon(resolvedTheme)}
     </button>
   );
 };
