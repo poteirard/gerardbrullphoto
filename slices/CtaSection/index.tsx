@@ -9,23 +9,23 @@ export type TextProps = SliceComponentProps<Content.ContentSlice>;
 
 const CtaSection = ({ slice }: TextProps) => {
   return (
-    <section className="grid justify-center md:flex justify-between gap-20 py-10 md:py-20 lg:py-32 ">
-      <div className="w-40 h-40 m-auto md:m-auto md:w-1/3 md:h-1/3 lg:w-2/3 lg:h-2/3 xl:w-1/3 xl:h-1/3 relative">
+    <section className="grid  justify-center md:flex lg:px-20 xl:px-40 gap-20 py-10 md:py-20 ">
+      <div className="flex m-auto justify-center md:block shrink-0 relative w-48 h-48">
         {slice?.primary?.image ? (
           <PrismicImage
             field={slice.primary.image}
             width={200}
-            className="rounded-full "
+            className="rounded-full"
           />
         ) : (
           <></>
         )}
-        <span className="absolute top-0 h-full w-full shadow-2xl shadow-purple-400 rounded-full animate-pulse" />
+        <span className="absolute top-0 right-0 left-0 h-full w-full shadow-2xl shadow-purple-400 rounded-full animate-pulse" />
       </div>
-      <div className="md:w-2/3 lg:w-auto">
+      <div className="">
         <h3 className="text-3xl pb-4 ">{slice?.primary?.title}</h3>
         {slice?.primary?.description ? (
-          <div className="text-sm">
+          <div className="text-sm text-justify">
             <PrismicRichText
               field={slice?.primary?.description}
               components={{
