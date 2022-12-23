@@ -18,7 +18,7 @@ const SocialImage = ({ prismicLink, prismicImage }: SocialImageProps) => (
     field={prismicLink}
     className="underline decoration-1 underline-offset-1 "
   >
-    <PrismicNextImage field={prismicImage} width="40" className="dark:invert" />
+    <PrismicNextImage field={prismicImage} width="24" className="dark:invert" />
   </PrismicLink>
 );
 

@@ -16,6 +16,7 @@ specifiers:
   concurrently: ^7.6.0
   eslint: 8.30.0
   eslint-config-next: 13.0.7
+  flag-icons: ^6.6.6
   next: 13.0.7
   next-themes: ^0.2.1
   postcss: ^8.4.20
@@ -40,6 +41,7 @@ dependencies:
   '@types/react-dom': 18.0.9
   eslint: 8.30.0
   eslint-config-next: 13.0.7_lzzuuodtsqwxnvqeq4g4likcqa
+  flag-icons: 6.6.6
   next: 13.0.7_biqbaboplfbrettd7655fr4n2y
   next-themes: 0.2.1_gvvct4imq5upoiloat43sswrza
   react: 18.2.0
@@ -4264,6 +4266,10 @@ packages:
     dependencies:
       locate-path: 6.0.0
       path-exists: 4.0.0
+
+  /flag-icons/6.6.6:
+    resolution: {integrity: sha512-4lHDKxldnQ7q617pf9Dx9nAetT+9zcMpUexbRrc9kjLw9KJgZ83zA5Dky3Vv7ZDzUjAiZ46x/cy5P0HnEnqA2A==}
+    dev: false
 
   /flat-cache/3.0.4:
     resolution: {integrity: sha512-dm9s5Pw7Jc0GvMYbshN6zchCA9RgQlzzEZX3vylR9IqFfS8XciblUXOKfW6SiuJ0e13eDYZoZV5wdrev7P3Nwg==}

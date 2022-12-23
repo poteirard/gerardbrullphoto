@@ -32,7 +32,7 @@ export function Navbar({ navbar, altLangs }: NavbarProps) {
           {navbar?.data?.title}
         </p>
       </div>
-      <div className="w-34 md:w-56 flex content-center items-center justify-end w-10">
+      <div className="w-34 md:w-56 flex gap-2 sm:gap-4 content-center items-center justify-end">
         <ThemeToggle
           renderIcon={(theme) => {
             return (
@@ -43,7 +43,7 @@ export function Navbar({ navbar, altLangs }: NavbarProps) {
                     : navbar?.data?.dark_icon
                 }
                 width="15"
-                className="dark:invert -rotate-45 dark:rotate-0"
+                className="w-10 h-5 sm:w-5 dark:invert -rotate-45 dark:rotate-0"
               />
             );
           }}
