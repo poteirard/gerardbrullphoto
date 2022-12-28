@@ -24,7 +24,8 @@ export function Navbar({ navbar, altLangs }: NavbarProps) {
           <PrismicNextImage
             field={navbar?.data?.logo}
             className="dark:invert w-48 md:w-72 h-auto"
-            height="280"
+            height="30"
+            width="290"
           />
         </PrismicLink>
       </div>
