@@ -15,6 +15,7 @@ const CtaSection = ({ slice }: TextProps) => {
           <PrismicImage
             field={slice.primary.image}
             width={200}
+            height={200}
             className="rounded-full"
           />
         ) : (
