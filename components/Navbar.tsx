@@ -18,7 +18,7 @@ export function Navbar({ navbar, altLangs }: NavbarProps) {
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
   return (
-    <nav className="flex gap-6 md:gap-20 px-4 py-2 md:py-6 container m-auto justify-between">
+    <nav className="flex h-16 gap-6 md:gap-20 px-4 py-2 md:py-6 container m-auto justify-between">
       <div className="w-34 md:w-56 flex content-center items-center">
         <PrismicLink field={navbar?.data?.home_link}>
           <PrismicNextImage
@@ -26,6 +26,7 @@ export function Navbar({ navbar, altLangs }: NavbarProps) {
             className="dark:invert w-48 md:w-72 h-auto"
             height="30"
             width="290"
+            priority={true}
           />
         </PrismicLink>
       </div>
@@ -45,6 +46,8 @@ export function Navbar({ navbar, altLangs }: NavbarProps) {
                     : navbar?.data?.dark_icon
                 }
                 width="15"
+                height="15"
+                priority={true}
                 className="w-10 h-5 sm:w-5 dark:invert -rotate-45 dark:rotate-0"
               />
             );
